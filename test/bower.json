@@ -1,0 +1,9 @@
+{
+  "name": "oanda-hack-mar2014-pairfirst",
+  "private": true,
+  "dependencies": {
+    "chai": "~1.8.0",
+    "mocha": "~1.14.0"
+  },
+  "devDependencies": {}
+}
