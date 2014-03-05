@@ -1,0 +1,42 @@
+.trades, .orders{
+    display: inline-block;
+    width: 41%;
+    color: white;
+    vertical-align: top;
+}
+
+.trades {
+    margin: 1% 1% 1% 8%;
+}
+
+.orders {
+    margin: 1% 5% 1% 1%;
+}
+
+.trade-item, .order-item {
+    margin: 1em 0 1em 0;
+}
+
+.trades h3, .orders h3 {
+    border-bottom: 1px blue solid;
+}
+
+.trades ol, .orders ol {
+    list-style-type: none;
+    padding-left: 0em;
+}
+
+.trade-pair, .trade-units, .order-pair, .order-units{
+    font-weight: bold;
+}
+
+.trade-units, .order-units {
+    font-size: small;
+    font-weight: bold;
+    margin-left: 1em;
+}
+
+.trade-pl, .order-distance {
+    float: right;
+    font-size: x-large;
+}

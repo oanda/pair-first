@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/lu.css">
     </head>
     <body>
         <div class="container">
@@ -48,6 +49,23 @@
                 <span>C:&nbsp;<span id="stats-close">1.29468</span></span>
             </div>
 
+            <div class="trades">
+                <h3>Trades</h3>
+                <ol id="trades-list"></ol>
+            </div>
+
+            <div class="orders">
+                <h3>Orders</h3>
+                <ol id="orders-list"></ol>
+            </div>
+
+            <div class="news">
+                
+            </div>
+
+            <div class="stocktwits">
+            </div>
+
             <div class="footer">
                Download fxTrade | About | Settings 
             </div>
@@ -55,7 +73,7 @@
         </div>
 
 
-        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
 
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/bootstrap/js/affix.js"></script>
@@ -73,5 +91,6 @@
         <!-- endbuild -->
 
         <script src="scripts/main.js"></script>
+        <script src="scripts/lu.js"></script>
 </body>
 </html>
