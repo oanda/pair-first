@@ -1,11 +1,11 @@
-.trades, .orders{
+.trades, .orders, .news, .tradeLead{
     display: inline-block;
     width: 43%;
     color: white;
     vertical-align: top;
 }
 
-.trades {
+.trades, .news {
     margin: 1% 1% 1% 5%;
 }
 
@@ -17,14 +17,14 @@
     margin: 1em 0 1em 0;
 }
 
-.trades h3, .orders h3 {
+.trades h3, .orders h3, .news h3, .tradeLead h3 {
     font-size: 1.5em;
     color: #4e92d1;
     padding-bottom: 10px;
     border-bottom: 2px #1a3956 solid;
 }
 
-.trades ol, .orders ol {
+.trades ol, .orders ol, .news ol {
     list-style-type: none;
     padding-left: 0em;
 }
@@ -61,4 +61,18 @@
    background-color: #32db0c;
    width: 33%;
    height: 2px;
+}
+
+div.news {
+/*   margin: 1em 5% 1em 5%;*/
+}
+
+div.news li {
+    display: inline-block;
+    width: 18%;
+    vertical-align: top;
+}
+
+div.news li img {
+    display: block;
 }
