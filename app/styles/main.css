@@ -28,6 +28,10 @@ body {
     margin-right: 1%;
 }
 
+.data-right .USD > div, .data-right .CAD > div {
+    margin-left: 1%;
+}
+
 .data-middle {
     position: absolute;
     left: calc(50% - 1px);
@@ -41,10 +45,6 @@ body {
     background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
     background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=0 );
-}
-
-.data-right > div {
-    padding-left: 1%;
 }
 
 .data-currency {
