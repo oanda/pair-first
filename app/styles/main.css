@@ -89,7 +89,7 @@ body {
 }
 
 .GBP {
-    background: url(../images/billgbp.png);
+    background: url(../images/billgbp.png) 100% 0;
 }
 
 .USD {
