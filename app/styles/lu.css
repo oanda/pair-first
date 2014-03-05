@@ -1,12 +1,12 @@
 .trades, .orders{
     display: inline-block;
-    width: 41%;
+    width: 43%;
     color: white;
     vertical-align: top;
 }
 
 .trades {
-    margin: 1% 1% 1% 8%;
+    margin: 1% 1% 1% 5%;
 }
 
 .orders {
@@ -18,7 +18,10 @@
 }
 
 .trades h3, .orders h3 {
-    border-bottom: 1px #1a3956 solid;
+    font-size: 1.5em;
+    color: #4e92d1;
+    padding-bottom: 10px;
+    border-bottom: 2px #1a3956 solid;
 }
 
 .trades ol, .orders ol {
