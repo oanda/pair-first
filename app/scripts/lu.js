@@ -23,6 +23,7 @@ function createTradeItem(tradeId,pair,units,openValue,direction){
 
     $('<span/>', {
         class: 'trade-fineprint',
+        alt: openValue,
         text: direction + ' @ ' + openValue + ' -> '
     }).appendTo('#'+tradeId);
 
@@ -51,6 +52,7 @@ function createOrderItem(orderId,pair,units,openValue,direction){
         text: units
     }).appendTo('#'+orderId);
 
+    bidOrAsk = (direction == "Short") ? "bid" : "ask";
     $('<span/>', {
         class: 'order-distance',
         text: 0
@@ -60,10 +62,10 @@ function createOrderItem(orderId,pair,units,openValue,direction){
 
     $('<span/>', {
         class: 'order-fineprint',
+        alt: openValue,
         text: direction + ' @ ' + openValue + ' -> '
     }).appendTo('#'+orderId);
 
-    bidOrAsk = (direction == "Short") ? "bid" : "ask";
     $('<span/>', {
         class: 'order-currentrate currentrate-' + pair + bidOrAsk,
         text: 0
@@ -75,19 +77,47 @@ function getQuote(pair){
         rate = rateQuoteResponse.prices[0];
         $(".currentrate-" + pair + "bid").each(function(index){
             $(this).text(rate.bid);
+            var plSpan = $(this).siblings(".trade-pl")[0];
+            var open = $(this).siblings(".trade-fineprint")[0];
+            var pl = (parseFloat(rate.bid) - parseFloat($(open).attr("alt"))).toFixed(5);
+            $(plSpan).text( pl );
+            if( pl < 0 ){ $(plSpan).removeClass("stats-profit").addClass("stats-loss"); }
+            else{ $(plSpan).addClass("stats-profit").removeClass("stats-loss"); }
+
+            var orderDistance = $(this).siblings(".order-distance")[0];
+            var orderValue = $(this).siblings(".order-fineprint")[0];            
+            var orderDelta = (parseFloat(rate.bid) - parseFloat($(orderValue).attr("alt"))).toFixed(5);
+            $(orderDistance).text( orderDelta );
+            if( orderDelta < 0 ){ $(orderDistance).removeClass("stats-profit").addClass("stats-loss"); }
+            else{ $(orderDistance).addClass("stats-profit").removeClass("stats-loss"); }
         });
         $(".currentrate-" + pair + "ask").each(function(index){
             $(this).text(rate.ask);
+            var plSpan = $(this).siblings(".trade-pl")[0];
+            var open = $(this).siblings(".trade-fineprint")[0];
+            var pl = (parseFloat($(open).attr("alt")) - parseFloat(rate.ask)).toFixed(5);
+            $(plSpan).text( pl );
+            if( pl < 0 ){ $(plSpan).removeClass("stats-profit").addClass("stats-loss"); }
+            else{ $(plSpan).addClass("stats-profit").removeClass("stats-loss"); }
+
+            var orderDistance = $(this).siblings(".order-distance")[0];
+            var orderValue = $(this).siblings(".order-fineprint")[0];            
+            var orderDelta = (- parseFloat(rate.bid) + parseFloat($(orderValue).attr("alt"))).toFixed(5);
+            $(orderDistance).text( orderDelta );
+            if( orderDelta < 0 ){ $(orderDistance).removeClass("stats-profit").addClass("stats-loss"); }
+            else{ $(orderDistance).addClass("stats-profit").removeClass("stats-loss"); }
         });
     });
 }
 
 trades = trades_data["EUR_USD"]["open_trades"];
 $(trades).each(function(index){
-    createTradeItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.dir == "L" ? "Long" : "Short");});
+    createTradeItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.dir == "L" ? "Long" : "Short");
+});
 
-createOrderItem(32124,"EUR_USD",300,1.4212,"Long");
-createOrderItem(42367,"EUR_USD",300,1.4212,"Long");
-createOrderItem(3975,"EUR_USD",300,1.4212,"Long");
+orders = orders_data["EUR_USD"]["open_orders"];
+$(orders).each(function(index){
+    createOrderItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.type == "L" ? "Long" : "Short");
+});
 
 setInterval("getQuote('EUR_USD')", 1000);

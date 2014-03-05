@@ -8,3 +8,15 @@ trades_data = {
         ]
     }
 }
+
+
+orders_data = {
+    "EUR_USD" : {
+        "open_orders" : [
+            { "id" : 532313312, "type": "L", "symbol" : "EUR/USD", "units" : 100, "time" : 1234567891, "price" : 1.5, "stop_loss" : 1.2, "take_profit" : 1.7, "expiry" : 1234567890, "high_limit" : 2.0, "low_limit" : 1.0, "trailing_stop" : 10, "oca_group_id" : 0},
+            { "id" : 1543311, "type": "L", "symbol" : "EUR/USD", "units" : 100, "time" : 1234567890, "price" : 1.5, "stop_loss" : 1.2, "take_profit" : 1.7, "expiry" : 1234567890, "high_limit" : 2.0, "low_limit" : 1.0, "trailing_stop" : 10, "oca_group_id" : 1},
+            { "id" : 12345773211, "type": "L", "symbol" : "EUR/USD", "units" : 100, "time" : 1234567890, "price" : 1.5, "stop_loss" : 1.2, "take_profit" : 1.7, "expiry" : 1234567890, "high_limit" : 2.0, "low_limit" : 1.0, "trailing_stop" : 10, "oca_group_id" : 1},
+            { "id" : 918784111, "type": "L", "symbol" : "EUR/USD", "units" : 100, "time" : 1234567890, "price" : 1.5, "stop_loss" : 1.2, "take_profit" : 1.7, "expiry" : 1234567890, "high_limit" : 2.0, "low_limit" : 1.0, "trailing_stop" : 10, "oca_group_id" : 1}
+        ]
+    }
+}
