@@ -55,3 +55,25 @@ orders_data = {
         ]
     }
 }
+
+
+news_data = {
+    "EUR_USD" : [
+        {"image":"images/news1.jpg", "content": "EUR/USD dips as robust"},
+        {"image":"images/news2.jpg", "content": "Consumer spending report"},
+        {"image":"images/news3.jpg", "content": "Sparks dollar rally"},
+        {"image":"images/news4.jpg", "content": "Upward is Still Strong"},
+        {"image":"images/news5.jpg", "content": "Will EUR/USD Go Higher"},
+    ],
+    "EUR_CAD" : [
+        {"image":"images/news6.jpg", "content": "EUR/CAD eases ahead of BoC monetary policy meeting"},
+        {"image":"images/news10.jpg", "content": "NZ export commodities post record high prices"},
+    ],
+    "GBP_USD" : [
+        {"image":"images/news8.jpg", "content": "GBP/USD pushes higher"},
+    ],
+    "GBP_CAD" : [
+        {"image":"images/news7.jpg", "content": "CAD firms in choppy action"},
+        {"image":"images/news11.jpg", "content": "BoE suspends employee in forex probe"},
+    ],
+}

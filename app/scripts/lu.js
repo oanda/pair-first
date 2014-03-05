@@ -72,6 +72,17 @@ function createOrderItem(orderId,pair,units,openValue,direction){
     }).appendTo('#'+orderId);
 };
 
+function createNewsItem(image,content){
+    newsItem = $('<li/>');
+    $('<img/>', {
+        src: image
+    }).appendTo(newsItem);
+    $('<p/>', {
+        text: content
+    }).appendTo(newsItem);
+    newsItem.appendTo('#news-list');
+}
+
 function getQuote(pair){
     OANDA.rate.quote([pair], function(rateQuoteResponse){
         rate = rateQuoteResponse.prices[0];
@@ -115,6 +126,8 @@ function getQuote(pair){
 function populateLowerPageWithPair(pair){
     $('#trades-list').empty();
     $('#orders-list').empty();
+    $('#news-list').empty();
+    $('#leader-list').empty();
     trades = trades_data[pair]["open_trades"];
     $(trades).each(function(index){
         createTradeItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.dir == "L" ? "Long" : "Short");
@@ -123,6 +136,11 @@ function populateLowerPageWithPair(pair){
     orders = orders_data[pair]["open_orders"];
     $(orders).each(function(index){
         createOrderItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.type == "L" ? "Long" : "Short");
+    });
+
+    news = news_data[pair];
+    $(news).each(function(index){
+        createNewsItem(this.image,this.content);
     });
 
     getQuote(pair);
