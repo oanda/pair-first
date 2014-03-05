@@ -110,15 +110,23 @@ function getQuote(pair){
     });
 }
 
-trades = trades_data["EUR_USD"]["open_trades"];
-$(trades).each(function(index){
-    createTradeItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.dir == "L" ? "Long" : "Short");
-});
 
-orders = orders_data["EUR_USD"]["open_orders"];
-$(orders).each(function(index){
-    createOrderItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.type == "L" ? "Long" : "Short");
-});
 
-getQuote('EUR_USD');
-setInterval("getQuote('EUR_USD')", 1000);
+function populateLowerPageWithPair(pair){
+    $('#trades-list').empty();
+    $('#orders-list').empty();
+    trades = trades_data[pair]["open_trades"];
+    $(trades).each(function(index){
+        createTradeItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.dir == "L" ? "Long" : "Short");
+    });
+
+    orders = orders_data[pair]["open_orders"];
+    $(orders).each(function(index){
+        createOrderItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.type == "L" ? "Long" : "Short");
+    });
+
+    getQuote(pair);
+    setInterval("getQuote('"+pair+"')", 1000);
+}
+
+populateLowerPageWithPair("EUR_USD");
