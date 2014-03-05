@@ -6,12 +6,12 @@ function createTradeItem(tradeId,pair,units,openValue,direction){
 
     $('<span/>', {
         class: 'trade-pair',
-        text: pair
+        text: pair.replace("_","/")
     }).appendTo('#'+tradeId);
 
     $('<span/>', {
         class: 'trade-units',
-        text: units
+        text: units + " Units"
     }).appendTo('#'+tradeId);
 
     $('<span/>', {
@@ -43,7 +43,7 @@ function createOrderItem(orderId,pair,units,openValue,direction){
 
     $('<span/>', {
         class: 'order-pair',
-        text: pair
+        text: pair.replace("_","/")
     }).appendTo('#'+orderId);
 
     $('<span/>', {
@@ -82,12 +82,9 @@ function getQuote(pair){
     });
 }
 
-
-createTradeItem(12345,"EUR_USD","500 Units",1.2332,"Short");
-createTradeItem(431234,"EUR_USD","500 Units",1.2332,"Short");
-createTradeItem(5324,"EUR_USD","500 Units",1.2332,"Long");
-createTradeItem(113411,"EUR_USD","500 Units",1.2332,"Short");
-
+trades = trades_data["EUR_USD"]["open_trades"];
+$(trades).each(function(index){
+    createTradeItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.dir == "L" ? "Long" : "Short");});
 
 createOrderItem(32124,"EUR_USD",300,1.4212,"Long");
 createOrderItem(42367,"EUR_USD",300,1.4212,"Long");
