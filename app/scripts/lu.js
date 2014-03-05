@@ -26,9 +26,9 @@ function createTradeItem(tradeId,pair,units,openValue,direction){
         text: direction + ' @ ' + openValue + ' -> '
     }).appendTo('#'+tradeId);
 
+    bidOrAsk = (direction == "Short") ? "bid" : "ask";
     $('<span/>', {
-        class: 'trade-currentrate',
-        id: 'currentrate-' + pair,
+        class: 'trade-currentrate, currentrate-' + pair + bidOrAsk,
         text: 0
     }).appendTo('#'+tradeId);
 
@@ -63,20 +63,34 @@ function createOrderItem(orderId,pair,units,openValue,direction){
         text: direction + ' @ ' + openValue + ' -> '
     }).appendTo('#'+orderId);
 
+    bidOrAsk = (direction == "Short") ? "bid" : "ask";
     $('<span/>', {
-        class: 'order-currentrate',
-        id: 'currentrate-' + pair,
+        class: 'order-currentrate currentrate-' + pair + bidOrAsk,
         text: 0
     }).appendTo('#'+orderId);
 };
 
+function getQuote(pair){
+    OANDA.rate.quote([pair], function(rateQuoteResponse){
+        rate = rateQuoteResponse.prices[0];
+        $(".currentrate-" + pair + "bid").each(function(index){
+            $(this).text(rate.bid);
+        });
+        $(".currentrate-" + pair + "ask").each(function(index){
+            $(this).text(rate.ask);
+        });
+    });
+}
 
-createTradeItem(12345,"EUR/USD","500 Units",1.2332,"Short");
-createTradeItem(431234,"EUR/USD","500 Units",1.2332,"Short");
-createTradeItem(5324,"EUR/USD","500 Units",1.2332,"Short");
-createTradeItem(113411,"EUR/USD","500 Units",1.2332,"Short");
+
+createTradeItem(12345,"EUR_USD","500 Units",1.2332,"Short");
+createTradeItem(431234,"EUR_USD","500 Units",1.2332,"Short");
+createTradeItem(5324,"EUR_USD","500 Units",1.2332,"Long");
+createTradeItem(113411,"EUR_USD","500 Units",1.2332,"Short");
 
 
-createOrderItem(32124,"EUR/USD",300,1.4212,"Long");
-createOrderItem(42367,"EUR/USD",300,1.4212,"Long");
-createOrderItem(3975,"EUR/USD",300,1.4212,"Long");
+createOrderItem(32124,"EUR_USD",300,1.4212,"Long");
+createOrderItem(42367,"EUR_USD",300,1.4212,"Long");
+createOrderItem(3975,"EUR_USD",300,1.4212,"Long");
+
+setInterval("getQuote('EUR_USD')", 1000);
