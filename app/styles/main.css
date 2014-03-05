@@ -24,7 +24,7 @@ body {
     text-align: right;
 }
 
-.data-left > div {
+.data-left .EUR > div, .data-left .GBP > div {
     margin-right: 1%;
 }
 
@@ -70,13 +70,14 @@ body {
 }
 
 .shadow {
-background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.7) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.7)));
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
-background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
-background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
-background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 );
+    height: 215px;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.7) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.7)));
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 );
 }
 
 .CAD {
@@ -148,4 +149,172 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
         width: 100%;
     }
 
+}
+
+
+/* shamelessly copied from http://cowboy.github.io/wesbos/ */
+.card {
+    position:relative;
+    height: 215px;
+}
+.card .flipper,
+.card .flipper > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.flipper {
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -ms-perspective: 800px;
+  perspective: 800px;
+  -webkit-transition: -webkit-transform 1s;
+  /*
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  -ms-transition: -ms-transform 1s;
+  transition: transform 1s;
+  */
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+}
+.flipper > * {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 0.05em solid #000;
+  background-color: rgba(255,255,255,0.1);
+  border-color: rgba(0,0,0,0.15);
+  font-weight: 400;
+}
+.flipper > * {
+  background-color: rgba(0,0,0,0.2);
+  border-color: rgba(0,0,0,0.15);
+  font-weight: 700;
+}
+.flipper .back {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.flipper .empty {
+  background: none !important;
+  border: none !important;
+}
+/* Add .flipped class to start the animation */
+.flipped .flipper {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.flipped .flipper .front {
+  -webkit-animation: flip-front 1s forwards;
+  -moz-animation: flip-front 1s;
+  -o-animation: flip-front 1s;
+  -ms-animation: flip-front 1s;
+  animation: flip-front 1s;
+}
+.flipped .flipper .back {
+  -webkit-animation: flip-back 1s;
+  -moz-animation: flip-back 1s;
+  -o-animation: flip-back 1s;
+  -ms-animation: flip-back 1s;
+  animation: flip-back 1s;
+}
+@-moz-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-webkit-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-o-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-ms-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-moz-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@-webkit-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@-o-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@-ms-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
 }
