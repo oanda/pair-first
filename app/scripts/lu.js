@@ -24,16 +24,16 @@ function createTradeItem(tradeId,pair,units,openValue,direction){
     $('<span/>', {
         class: 'trade-fineprint',
         alt: openValue,
-        text: direction + ' @ ' + openValue + ' -> '
+        text: direction + ' @ ' + openValue + " → "
     }).appendTo('#'+tradeId);
 
     bidOrAsk = (direction == "Short") ? "bid" : "ask";
     $('<span/>', {
-        class: 'trade-currentrate, currentrate-' + pair + bidOrAsk,
+        class: 'trade-currentrate currentrate-' + pair + bidOrAsk,
         text: 0
     }).appendTo('#'+tradeId);
 
-
+    $('#'+tradeId).append("<div class='tradePLBar'><div></div></div>");
 };
 
 function createOrderItem(orderId,pair,units,openValue,direction){
@@ -49,7 +49,7 @@ function createOrderItem(orderId,pair,units,openValue,direction){
 
     $('<span/>', {
         class: 'order-units',
-        text: units
+        text: units + " Units"
     }).appendTo('#'+orderId);
 
     bidOrAsk = (direction == "Short") ? "bid" : "ask";
@@ -63,7 +63,7 @@ function createOrderItem(orderId,pair,units,openValue,direction){
     $('<span/>', {
         class: 'order-fineprint',
         alt: openValue,
-        text: direction + ' @ ' + openValue + ' -> '
+        text: direction + ' @ ' + openValue + ' → '
     }).appendTo('#'+orderId);
 
     $('<span/>', {
@@ -120,4 +120,5 @@ $(orders).each(function(index){
     createOrderItem(this.id,this.symbol.replace("/","_"),this.units,this.price,this.type == "L" ? "Long" : "Short");
 });
 
+getQuote('EUR_USD');
 setInterval("getQuote('EUR_USD')", 1000);

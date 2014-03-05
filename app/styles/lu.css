@@ -43,3 +43,22 @@
     float: right;
     font-size: x-large;
 }
+
+.trade-fineprint, .order-fineprint, .trade-currentrate, .order-currentrate {
+    font-size: small;
+    font-weight: light;
+}
+
+.trade-currentrate, .order-currentrate {
+    color: gray;
+}
+
+.tradePLBar {
+  background-color: #333;
+}
+
+.tradePLBar > div {
+   background-color: #32db0c;
+   width: 33%;
+   height: 2px;
+}

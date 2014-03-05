@@ -129,6 +129,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     color: #32db0c;
 }
 
+.stats-loss {
+    color: red;
+}
+
 .footer {
     margin-top: 5px;
     border-top: solid 2px #1a3956;
