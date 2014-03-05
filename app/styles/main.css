@@ -74,7 +74,7 @@ body {
 }
 
 .EUR {
-    background: url(../images/billeur.png);
+    background: url(../images/billeur.png) 100% 0;
 }
 
 .GBP {
@@ -82,7 +82,7 @@ body {
 }
 
 .USD {
-    background: url(../images/billusd.jpg);
+    background: url(../images/billusd.jpg) 0 55%;
 }
 
 .stats {
