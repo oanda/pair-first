@@ -93,7 +93,7 @@ body {
 }
 
 .USD {
-    background: url(../images/billusd.jpg) 0 55%;
+    background: url(../images/billusd.png) 0 55%;
 }
 
 .spark {
@@ -102,6 +102,7 @@ body {
     height: 150px;
     background: url(../images/spark1.png) 0 100% repeat-x;
     -webkit-animation: slide 90s linear infinite;
+    animation: slide 90s linear infinite;
 }
 
 @-webkit-keyframes slide {
@@ -113,6 +114,15 @@ body {
     }
 }
 
+
+@keyframes slide {
+    from {
+        transform: none;
+    }
+    to {
+        transform: translate(-1100px);
+    }
+}
 
 .stats {
     background-color: #1a3956;
