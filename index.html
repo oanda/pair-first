@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pair First!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/lu.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <img src="images/fxtradeweb.svg">
+            </div>
+
+            <div class="row data">
+                <div class="data-left card">
+                    <div class="flipper">
+                        <div class="EUR front">
+                            <div class="shadow">
+                                <div class="data-currency">EUR</div>
+                                <div class="data-price-major"></div>
+                                <div>
+                                    <span class="data-direction">Sell</span>
+                                    <span class="data-price-minor"></span>
+                                    <sup class="data-price-pip"></sup>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="GBP back">
+                            <div class="shadow">
+                                <div class="data-currency">GBP</div>
+                                <div class="data-price-major"></div>
+                                <div>
+                                    <span class="data-direction">Sell</span>
+                                    <span class="data-price-minor"></span>
+                                    <sup class="data-price-pip"></sup>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-middle"></div>
+                <div class="data-right card">
+                    <div class="flipper">
+                        <div class="USD front">
+                            <div class="shadow">
+                                <div class="data-currency">USD</div>
+                                <div class="data-price-major"></div>
+                                <div>
+                                    <span class="data-price-minor"></span>
+                                    <sup class="data-price-pip"></sup>
+                                    <span class="data-direction">Buy</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="CAD back">
+                            <div class="shadow">
+                                <div class="data-currency">CAD</div>
+                                <div class="data-price-major"></div>
+                                <div>
+                                    <span class="data-price-minor"></span>
+                                    <sup class="data-price-pip"></sup>
+                                    <span class="data-direction">Buy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spark">
+            </div>
+
+            <div class="row stats">
+                <span id="stats-change" class="stats-profit"><span>0.47</span>%</span>
+                <span>O:&nbsp;<span id="stats-open">1.29468</span></span>
+                <span>H:&nbsp;<span id="stats-high">1.53306</span></span>
+                <span>L:&nbsp;<span id="stats-low">1.29468</span></span>
+                <span>C:&nbsp;<span id="stats-close">1.29468</span></span>
+            </div>
+
+            <div class="trades">
+                <h3>Trades</h3>
+                <ol id="trades-list"></ol>
+            </div>
+
+            <div class="orders">
+                <h3>Orders</h3>
+                <ol id="orders-list"></ol>
+            </div>
+
+            <div class="news">
+                <h3>News</h3>
+                <ol id="news-list">
+                </ol>
+            </div>
+
+            <div class="tradeLead">
+                <h3>Trade Leaders Program</h3>
+                <ol id="leaders-list">
+                  <li><span class="tl-title">LW Trading</span><span class="tl-alias">LIWWK.A</span><img src="images/china.png"><img class="investButton" src="images/invest.png"><span class="tl-pl stats-profit">176.2%</span></li>
+                  <li><span class="tl-title">Alpha Harvest</span><span class="tl-alias">WETPV.A</span><img src="images/china.png"><img class="investButton" src="images/invest.png"><span class="tl-pl stats-profit">87.2%</span></li>
+                  <li><span class="tl-title">Harbor FX</span><span class="tl-alias">HAFCW.F</span><img src="images/us.png"><img class="investButton" src="images/invest.png"><span class="tl-pl stats-profit">39.8%</span></li>
+                </ol>
+            </div>
+
+            <div class="footer">
+               Download fxTrade | About | Settings
+            </div>
+
+        </div>
+
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="http://developer.oanda.com/oandajs/oanda.js"></script>
+        <!-- endbuild -->
+
+        <script src="scripts/data.js"></script>
+        <script src="scripts/lu.js"></script>
+        <script src="scripts/main.js"></script>
+</body>
+</html>

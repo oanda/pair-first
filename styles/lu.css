@@ -1,0 +1,105 @@
+.trades, .orders, .news, .tradeLead{
+    display: inline-block;
+    width: 43%;
+    color: white;
+    vertical-align: top;
+}
+
+.trades, .news {
+    margin: 1% 1% 1% 5%;
+}
+
+.orders, .tradeLead {
+    margin: 1% 5% 1% 1%;
+}
+
+.trade-item, .order-item {
+    margin: 1em 0 1em 0;
+}
+
+.trades h3, .orders h3, .news h3, .tradeLead h3 {
+    font-size: 1.5em;
+    color: #4e92d1;
+    padding-bottom: 10px;
+    border-bottom: 2px #1a3956 solid;
+}
+
+.trades ol, .orders ol, .news ol, .tradeLead ol {
+    list-style-type: none;
+    padding-left: 0em;
+}
+
+.trade-pair, .trade-units, .order-pair, .order-units{
+    font-weight: bold;
+}
+
+.trade-units, .order-units {
+    font-size: small;
+    font-weight: bold;
+    margin-left: 1em;
+}
+
+.trade-pl, .order-distance {
+    float: right;
+    font-size: x-large;
+}
+
+.trade-fineprint, .order-fineprint, .trade-currentrate, .order-currentrate {
+    font-size: small;
+    font-weight: light;
+}
+
+.trade-currentrate, .order-currentrate {
+    color: gray;
+}
+
+.tradePLBar {
+  background-color: #333;
+}
+
+.tradePLBar > div {
+   background-color: #32db0c;
+   width: 33%;
+   height: 2px;
+}
+
+div.news {
+/*   margin: 1em 5% 1em 5%;*/
+}
+
+div.news li {
+    display: inline-block;
+    width: 18%;
+    vertical-align: top;
+}
+
+div.news li img {
+    display: block;
+}
+
+#leaders-list li {
+    height: 44px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    line-height: 3em;
+}
+
+#leaders-list img {
+    vertical-align: middle;
+}
+
+#leaders-list img.investButton, #leaders-list span.tl-pl {
+    float: right;
+}
+
+#leaders-list span {
+    margin-right: 1em;
+}
+
+.tl-title {
+    font-size: large;
+    font-weight: bold;
+}
+
+.

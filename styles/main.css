@@ -1,0 +1,330 @@
+/* Space out content a bit */
+body {
+    font-family: 'Helvetica';
+    background-color: black;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+}
+
+.data {
+    color: white;
+}
+
+.data-left, .data-right {
+    display: inline-block;
+    width: calc(50% - 2px);
+}
+
+
+.data-left {
+    text-align: right;
+}
+
+.data-left .EUR > div, .data-left .GBP > div {
+    margin-right: 1%;
+}
+
+.data-right .USD > div, .data-right .CAD > div {
+    margin-left: 1%;
+}
+
+.data-middle {
+    position: absolute;
+    left: calc(50% - 1px);
+    top: 2.5em;
+    width: 3px;
+    height: 220px;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(20%,rgba(255,255,255,1)), color-stop(80%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=0 );
+}
+
+.data-currency {
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.data-direction {
+    color: #4e92d1;
+    font-size: 2em;
+    padding: 0 25px;
+}
+
+.data-price-minor {
+    font-size: 6em;
+}
+
+.data-price-pip {
+    font-size: 2em;
+    position: relative;
+    top: -1.2em;
+}
+
+.shadow {
+    height: 215px;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.7) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.7)));
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 75%,rgba(0,0,0,0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 );
+}
+
+.CAD {
+    background: url(../images/billcad.png);
+}
+
+.EUR {
+    background: url(../images/billeur.png) 100% 0;
+}
+
+.GBP {
+    background: url(../images/billgbp.png) 100% 0;
+}
+
+.USD {
+    background: url(../images/billusd.png) 0 55%;
+}
+
+.spark {
+    width: 5000px;
+    margin-top: -50px;
+    height: 150px;
+    background: url(../images/spark1.png) 0 100% repeat-x;
+    -webkit-animation: slide 90s linear infinite;
+    animation: slide 90s linear infinite;
+}
+
+@-webkit-keyframes slide {
+    from {
+        -webkit-transform: none;
+    }
+    to {
+        -webkit-transform: translate(-1100px);
+    }
+}
+
+
+@keyframes slide {
+    from {
+        transform: none;
+    }
+    to {
+        transform: translate(-1100px);
+    }
+}
+
+.stats {
+    background-color: #1a3956;
+    color: #4e92d1;
+    text-align: center;
+    line-height: 2em;
+    font-size: 0.8em;
+}
+
+.stats > span {
+    margin-right: 25px;
+}
+
+.stats-profit {
+    color: #32db0c;
+}
+
+.stats-loss {
+    color: red;
+}
+
+.footer {
+    margin-top: 5px;
+    border-top: solid 2px #1a3956;
+    text-align: center;
+    color: #4e92d1;
+    line-height: 2em;
+    font-size: 0.8em;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+}
+
+
+/* shamelessly copied from http://cowboy.github.io/wesbos/ */
+.card {
+    position:relative;
+    height: 215px;
+}
+.card .flipper,
+.card .flipper > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.flipper {
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -ms-perspective: 800px;
+  perspective: 800px;
+  -webkit-transition: -webkit-transform 1s;
+  /*
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  -ms-transition: -ms-transform 1s;
+  transition: transform 1s;
+  */
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+}
+.flipper > * {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 0.05em solid #000;
+  background-color: rgba(255,255,255,0.1);
+  border-color: rgba(0,0,0,0.15);
+  font-weight: 400;
+}
+.flipper > * {
+  background-color: rgba(0,0,0,0.2);
+  border-color: rgba(0,0,0,0.15);
+  font-weight: 700;
+}
+.flipper .back {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.flipper .empty {
+  background: none !important;
+  border: none !important;
+}
+/* Add .flipped class to start the animation */
+.flipped .flipper {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.flipped .flipper .front {
+  -webkit-animation: flip-front 1s forwards;
+  -moz-animation: flip-front 1s;
+  -o-animation: flip-front 1s;
+  -ms-animation: flip-front 1s;
+  animation: flip-front 1s;
+}
+.flipped .flipper .back {
+  -webkit-animation: flip-back 1s;
+  -moz-animation: flip-back 1s;
+  -o-animation: flip-back 1s;
+  -ms-animation: flip-back 1s;
+  animation: flip-back 1s;
+}
+@-moz-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-webkit-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-o-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-ms-keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@keyframes flip-front {
+  0% {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+}
+@-moz-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@-webkit-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@-o-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@-ms-keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+@keyframes flip-back {
+  50% {
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  100% {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
